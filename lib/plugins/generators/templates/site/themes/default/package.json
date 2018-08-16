@@ -1,0 +1,9 @@
+{
+	"name": "cogear-theme-default",
+	"description": "Default Cogear.JS theme",
+	"version": "1.0.1",
+	"author": "Dmitriy Belyaev <admin@cogearjs.org>",
+	"repository": "https://github.com/codemotion/cogear-theme-default",
+	"homepage": "https://cogearjs.org",
+	"license": "MIT"
+}
