@@ -109,7 +109,6 @@
     "responsive-loader": "^1.1.0",
     "sass-loader": "^7.0.3",
     "sftp-upload": "^1.0.0",
-    "sharp": "^0.20.5",
     "shelljs": "^0.8.2",
     "simple-git": "^1.96.0",
     "style-loader": "^0.21.0",
