@@ -18,7 +18,7 @@ const path = require("path"),
 		return {
 			context: __dirname,
 			resolve: {
-				extensions: [".js", ".json", ".coffee", ".Vue",".jsx",".pug",".hbs",".ejs",".html"], // File extensions that will be resolved automatically
+				extensions: [".js", ".json", ".coffee", ".Vue",".jsx",".pug",".ejs",".html"], // File extensions that will be resolved automatically
 				alias: {
 					"#": path.join(process.cwd(),'/'), // Alias for project root
 					"@": cogear.themeDir ? path.join(cogear.themeDir,'/') : '' // Alias for theme root
@@ -39,11 +39,18 @@ const path = require("path"),
 					{
 						test: /\.svg/,
 						use: {
-								loader: 'url-loader',
+								loader: 'file-loader',
 								options: {
+									context: process.cwd(),
 									limit: 1024*8,
-									name: "[name]-[hash:6].[ext]",
-									outputPath: 'images',
+									name (file) {
+										if (cogear.options.mode === 'development') {
+											return '[name].[ext]?[hash:4]'
+										}
+										return '[name]-[hash:6].[ext]'
+									},
+									// publicPath: '../'
+									outputPath: 'images/',
 									publicPath: '/images/',
 								}
 						}
@@ -52,11 +59,10 @@ const path = require("path"),
 						test: /\.(jpe?g|png|gif|ico)$/i,
 						use:[
 							{
-								loader: "url-loader",
+								loader: "file-loader",
 								options: {
-									limit: 8192,
 									name: "[name]-[hash:6].[ext]",
-									outputPath: 'images',
+									outputPath: 'images/',
 									publicPath: '/images/',
 								}
 							},
@@ -68,9 +74,9 @@ const path = require("path"),
 							loader: "url-loader",
 							options: {
 								limit: 10*1024,
-								name: "[name]-[hash:6].[ext]",
-								outputPath: '/fonts/',
-								publicPath: '/fonts/'
+								name: "[path][name]-[hash:6].[ext]",
+								outputPath: 'fonts/',
+								publicPath: '/fonts/',
 							}
 						}],
 					},
