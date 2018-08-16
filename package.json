@@ -1,6 +1,6 @@
 {
   "name": "cogear",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cogear.JS – modern static websites generator (Node.JS/Webpack)",
   "main": "./lib/cogear.js",
   "repository": "https://github.com/codemotion/cogear.js",
@@ -24,8 +24,7 @@
     "test": "jest"
   },
   "preferGlobal": true,
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "autoprefixer": "^9.1.0",
     "babel-core": "^6.26.3",
