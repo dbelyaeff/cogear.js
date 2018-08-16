@@ -1,0 +1,20 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": [">1%"],
+        "uglify": true
+      },
+      "useBuiltIns": true,
+      "debug": false
+    }],
+    "stage-3",
+    "minify"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    ["transform-class-properties", { "spec": true }],
+    "transform-react-jsx"
+  ]
+}

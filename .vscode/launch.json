@@ -1,0 +1,58 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Production",
+			"program": "${workspaceFolder}/bin/cogear",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Dev",
+			"program": "${workspaceFolder}/bin/cogear",
+			"args": ["-m","dev"],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Plugin",
+			"program": "${workspaceFolder}/bin/cogear",
+			"args": ["plugin"],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Theme",
+			"program": "${workspaceFolder}/bin/cogear",
+			"args": ["theme"],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mocha All",
+			"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+			"args": ["--timeout", "999999", "--colors", "${workspaceFolder}/test/**/*.spec.js"],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Mocha Current File",
+			"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+			"args": ["--timeout", "999999", "--colors", "${file}"],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		}
+	]
+}
