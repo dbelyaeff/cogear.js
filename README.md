@@ -102,7 +102,8 @@ Options:
   -h, --host          set host for local server, default: localhost
   -p, --port          set port for local server, default: 9000
   -o, --open          if set to false, browser will not be opened after build, default: false
-  -v, --verbose       set webpack verbose mode, default: false
+  -v, --version       print current version
+  -w, --verbose       set webpack verbose mode, default: true
 
 Commands:
 
