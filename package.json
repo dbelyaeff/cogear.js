@@ -25,6 +25,8 @@
   },
   "preferGlobal": true,
   "devDependencies": {
+  },
+  "dependencies": {
     "autoprefixer": "^9.1.0",
     "babel-core": "^6.26.3",
     "babel-loader": "7.x",
@@ -51,6 +53,7 @@
     "coffee": "^4.1.0",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.3.1",
+    "cogear-theme-default": "^1.0.0",
     "compression": "^1.7.3",
     "compression-webpack-plugin": "^1.1.11",
     "copy-webpack-plugin": "^4.5.2",
@@ -121,7 +124,6 @@
     "ucfirst": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^1.0.1",
-    "valid-url": "^1.0.9",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
@@ -132,8 +134,5 @@
     "webpack-require-http": "^0.4.3",
     "yaml-front-matter": "^4.0.0",
     "yaml-frontmatter-loader": "^0.1.0"
-  },
-  "dependencies": {
-    "cogear-theme-default": "^1.0.0"
   }
 }
