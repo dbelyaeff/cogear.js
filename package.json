@@ -116,7 +116,7 @@
     "sugarss": "^1.0.1",
     "svg-loader": "^0.0.2",
     "svg-url-loader": "^2.3.2",
-    "tapable": "^1.0.0",
+    "tapable": "webpack/tapable",
     "throttle-debounce": "^2.0.1",
     "ucfirst": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
