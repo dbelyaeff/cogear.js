@@ -5,7 +5,6 @@ const common = require('./webpack.common.js')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin")
 const postcssConfig = require('./postcss.config.js')
 
 
@@ -66,8 +65,6 @@ module.exports = (cogear) => {
       		cssProcessorOptions: { discardComments: { removeAll: true } },
       		canPrint: true
 				}),
-				new CompressionPlugin(),
-				// new FaviconsWebpackPlugin(path.join(cogear.options.src,'favicon.png'))
 			]
 		}
 	});
