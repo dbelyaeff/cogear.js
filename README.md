@@ -1,12 +1,17 @@
 # Cogear.JS – modern static websites generator
 
-[Installation](#installation) | [Usage](#usage) | [Options](#options) | [Website](https://cogearjs.org)
+[Requirements](#Requirements) | [Installation](#installation) | [Usage](#usage) | [Options](#options) | [Website](https://cogearjs.org)
 
+# About
 **Cogear.JS** is a static site generator build with [Node.JS](https://nodejs.org) and based on [Webpack](https://webpack.js.org) (v4.6).
 
 It's inspired by [Jekyll](https://jekyllrb.com) and others, but built on the top of the latest frontend technologies.
 
 Providing awesome experience of on-the-fly hot reloading to instantly implementing any changes.
+
+<article class="message is-info is-desktop">
+  <div class="message-body">Use arrow keys <button>&larr;</button> <button>&rarr;</button> to navigate through the docs.</div>
+</article>
 
 ## Features
 * It can be usefull for building modern static websites (using [Vue.JS](https://vuejs.org), [React](https://reactjs.org), [Angular](https:/angular.io), [Ember](https://emberjs.org)) or even for rapid prototyping.
@@ -27,7 +32,7 @@ Using [Github Pages](https://pages.github.com) (or any similar project) you can 
 
 Any site that has its administrator generated content.
 
-Using [Firebase](https://firebase.google.com) or any other _backend_, written in _any lang_ (**PHP**, **Ruby**, **Python**, **Node.JS**) or even with CMS like a **WordPress**, with the help of modern frontend technologies like [Vue.JS](https://vuejs.org) or [React](https://reactjs.org), it can be turned into more dynamic site like **e-commerce**, **products catalog** and so on.
+Using [Firebase](https://firebase.google.com) or any other _backend_, written in _any lang_ (**PHP**, **Ruby**, **Python**, **Node.JS**) or even with CMS like a **WordPress**, with help of modern frontend technologies like [Vue.JS](https://vuejs.org) or [React](https://reactjs.org), it can be turned into more dynamic site like **e-commerce**, **products catalog** and so on.
 
 ### What it cannot be used for:
 * Forum,
@@ -35,6 +40,21 @@ Using [Firebase](https://firebase.google.com) or any other _backend_, written in
 * Chat.
 
 Or any other site type with great amount of user-generated content which relies on heavily database usage and dynamically generated pages.
+
+# Requirements
+
+You have [Node.JS](https://nodejs.org) (9.x or higher) and [NPM](https://www.npmjs.com) (usually comes together) to be installed.
+
+[Download and install](https://nodejs.org/en/download/)
+
+The latest version (v10.9.0) is recommended.
+
+**Cogear.JS** runs on:
+* Mac
+* Linux
+* Windows
+
+You may also want to use awesome [VSCode](https://code.visualstudio.com) editor.
 
 # Installation
 To install **Cogear.JS** do next:
@@ -77,7 +97,7 @@ And start up **Cogear.JS** in prefered mode.
 > cogear deploy # deploy site to the default server
 ```
 # Options
-All available options can be seen via `--help` (or it's shortcut `-h`) command.
+All available options can be seen via `--git` (or shortcut `-h`) command.
 ```bash
 > cogear -h
 
@@ -120,6 +140,7 @@ Commands:
 For more information visit:
 https://cogearjs.org
 ```
+Let's take a look at the workflow.
 
 For more info, visit official website:
 [https://cogearjs.org](https://cogearjs.org)
