@@ -49,7 +49,6 @@ const path = require("path"),
 										}
 										return '[name]-[hash:6].[ext]'
 									},
-									// publicPath: '../'
 									outputPath: 'images/',
 									publicPath: '/images/',
 								}
@@ -71,10 +70,14 @@ const path = require("path"),
 					{
 						test: /\.(woff|woff2|ttf|eot)$/i,
 						use: [{
-							loader: "url-loader",
+							loader: "file-loader",
 							options: {
-								limit: 10*1024,
-								name: "[path][name]-[hash:6].[ext]",
+								name (file) {
+									if (cogear.options.mode === 'development') {
+										return '[name].[ext]?[hash:4]'
+									}
+									return '[name]-[hash:6].[ext]'
+								},
 								outputPath: 'fonts/',
 								publicPath: '/fonts/',
 							}
