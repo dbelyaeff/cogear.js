@@ -1,6 +1,6 @@
 const path = require("path"),
 	webpack = require("webpack")
-	ManifestPlugin = require("webpack-manifest-plugin"),
+	// ManifestPlugin = require("webpack-manifest-plugin"),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	nodeExternals = require('webpack-node-externals');
 	// Exporting a function with Cogear.JS instance as an argument
@@ -129,7 +129,7 @@ const path = require("path"),
 			},
 			plugins: [
 				new CleanWebpackPlugin(cogear.options.output,{verbose: false}),
-				new ManifestPlugin(),
+				// new ManifestPlugin(),
 				// new webpack.AutomaticPrefetchPlugin(),
 				// new webpack.optimize.ModuleConcatenationPlugin(),
 				new webpack.DefinePlugin({
