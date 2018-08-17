@@ -1,6 +1,6 @@
 # Cogear.JS – modern static websites generator
 
-[Requirements](#Requirements) | [Installation](#installation) | [Usage](#usage) | [Options](#options) | [Website](https://cogearjs.org)
+[Requirements](#requirements) | [Installation](#installation) | [Usage](#usage) | [Options](#options) | [Website](https://cogearjs.org)
 
 # About
 **Cogear.JS** is a static site generator build with [Node.JS](https://nodejs.org) and based on [Webpack](https://webpack.js.org) (v4.6).
@@ -8,10 +8,6 @@
 It's inspired by [Jekyll](https://jekyllrb.com) and others, but built on the top of the latest frontend technologies.
 
 Providing awesome experience of on-the-fly hot reloading to instantly implementing any changes.
-
-<article class="message is-info is-desktop">
-  <div class="message-body">Use arrow keys <button>&larr;</button> <button>&rarr;</button> to navigate through the docs.</div>
-</article>
 
 ## Features
 * It can be usefull for building modern static websites (using [Vue.JS](https://vuejs.org), [React](https://reactjs.org), [Angular](https:/angular.io), [Ember](https://emberjs.org)) or even for rapid prototyping.
