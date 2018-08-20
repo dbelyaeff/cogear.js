@@ -10,7 +10,7 @@ It's inspired by [Jekyll](https://jekyllrb.com) and others, but built on the top
 Providing awesome experience of on-the-fly hot reloading to instantly implementing any changes.
 
 ## Features
-* It can be usefull for building modern static websites (using [Vue.JS](https://vuejs.org), [React](https://reactjs.org), [Angular](https:/angular.io), [Ember](https://emberjs.org)) or even for rapid prototyping.
+* It can be usefull for building modern static websites (using [Vue.JS](https://vuejs.org), [React](https://reactjs.org), [Angular](https://angular.io), [Ember](https://emberjs.org)) or even for rapid prototyping.
 * It's **blazing fast and reliable** being online. Server can handle thousands requests per seconds to serve static files (even on tiny VPS).
 * It doesn't requires **any database** and works on **every hosting** (as it produces *static html and assets files*).
 * It's **100% secure** for hacking because it has no backend after being deployed to the server.
@@ -97,15 +97,6 @@ All available options can be seen via `--git` (or shortcut `-h`) command.
 ```bash
 > cogear -h
 
-╓─────────────────────────────────────────────────────────────╖
-║                                                             ║
-║                                                             ║
-║        Cogear.JS – modern static websites generator.        ║
-║                                                             ║
-║                    https://cogearjs.org                     ║
-║                                                             ║
-╙─────────────────────────────────────────────────────────────╜
-
 Usage: cogear [command]
 
 Runs in development mode by default (without [command]).
@@ -125,8 +116,8 @@ Commands:
 
   command   (alias)     [optional]      description
 
-  [dev]        (d)                     run dev server # hot-reload for pages, scripts, styles [DEFAULT]
-  production   (p)                     run build and starts static server
+  [dev]        (dev)                   run dev server # hot-reload for pages, scripts, styles [DEFAULT]
+  production   (prod)                  run build and starts static server # optional, default, no hot reload on changes
   build        (b)                     run build
   deploy       (d)       [preset]      deploy site to server
   new          (n)       [site-name]   generate new site
