@@ -6,12 +6,12 @@ const postcssConfig = require('./postcss.config.js')
 // const WebpackBrowserPlugin = require("webpack-browser-plugin");
 // var hotMiddlewareScript =
 // 	"webpack-hot-middleware/client?path=http://localhost:9000/__webpack_hmr&reload=true";
-
-module.exports = (cogear) => { return merge(common(cogear), {
+module.exports = merge(common, {
 	//"webpack-hot-middleware/client?reload=true",
 	// "webpack-dev-server?http://localhost:9000","webpack/hot/dev-server",
 	entry: {
-		app: [`webpack-dev-server/client?http://${cogear.options.host}:${cogear.options.port}`,"webpack/hot/dev-server",path.join(cogear.options.src,'app')]
+		// app: [`webpack-dev-server/client?http://${cogear.options.host}:${cogear.options.port}`,"webpack/hot/dev-server",path.join(cogear.options.src,'app')]
+		app: [path.join(cogear.baseDir,'lib','hot.js'),path.join(cogear.options.src,'app')]
 	},
 	mode: "development",
 	devtool: "sourcemap",
@@ -76,4 +76,3 @@ module.exports = (cogear) => { return merge(common(cogear), {
 		new webpack.NoEmitOnErrorsPlugin(),
 	]
 })
-}

@@ -1,5 +1,4 @@
-site:
-  title: Cogear.JS – modern static websites generator
-  description:
-  keywords: 
+title: Cogear.JS – modern static websites generator
+description:
+keywords: 
 theme: default

@@ -9,8 +9,7 @@ const postcssConfig = require('./postcss.config.js')
 
 
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-module.exports = (cogear) => {
-	return merge(common(cogear), {
+module.exports = merge(common, {
 		entry: {
 			app: [path.join(cogear.options.src, "app")]
 		},
@@ -67,5 +66,4 @@ module.exports = (cogear) => {
 				}),
 			]
 		}
-	});
-}
+});

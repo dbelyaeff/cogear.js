@@ -1,7 +1,7 @@
 module.exports = {
-		apply(cogear){
+		apply(){
 			// Process hooks here
-			cogear.hooks.init.tap('{{name}}',(cogear)=>{
+			cogear.hooks.init.tap('{{name}}',()=>{
 				// Do something
 			})
 		}
