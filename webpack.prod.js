@@ -21,6 +21,7 @@ module.exports = merge(common, {
 					test: /\.(sa|sc|c)ss$/,
 					use: [
 						MiniCssExtractPlugin.loader,
+						"cache-loader",
 						{ loader: 'css-loader', options: { importLoaders: 1 } },
 						{ loader : "postcss-loader", options: postcssConfig},
 						"sass-loader"
@@ -30,6 +31,7 @@ module.exports = merge(common, {
 					test: /\.styl$/,
 					use: [
 						MiniCssExtractPlugin.loader,
+						"cache-loader",
 						{ loader: 'css-loader', options: { importLoaders: 1 } },
 						{ loader : "postcss-loader", options: postcssConfig},
 						"stylus-loader"
@@ -39,6 +41,7 @@ module.exports = merge(common, {
 					test: /\.less$/,
 					use: [
 						MiniCssExtractPlugin.loader,
+						"cache-loader",
 						{ loader: 'css-loader', options: { importLoaders: 1 } },
 						{ loader : "postcss-loader", options: {config:postcssConfig}},
 						"less-loader"

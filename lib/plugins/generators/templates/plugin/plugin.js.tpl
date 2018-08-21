@@ -1,8 +1,8 @@
 module.exports = {
 		apply(){
 			// Process hooks here
-			cogear.hooks.init.tap('{{name}}',()=>{
+			// cogear.on('build.done',()=>{
 				// Do something
-			})
+			// })
 		}
 }

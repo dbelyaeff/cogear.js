@@ -111,18 +111,19 @@ Options:
   -o, --open          if set to false, browser will not be opened after build, default: false
   -v, --version       print current version
   -w, --verbose       set webpack verbose mode, default: true
+  -y                  yes to all questions, for generators
 
 Commands:
 
   command   (alias)     [optional]      description
 
-  [dev]        (dev)                   run dev server # hot-reload for pages, scripts, styles [DEFAULT]
-  production   (prod)                  run build and starts static server # optional, default, no hot reload on changes
-  build        (b)                     run build
-  deploy       (d)       [preset]      deploy site to server
-  new          (n)       [site-name]   generate new site
-  plugin       (p)       [plugin-name] generate plugin boilerplate
-  theme        (t)       [theme-name]  generate theme boilerplate
+  [dev]        (dev)                          run dev server # w/hot-reload [DEFAULT]
+  production   (prod)                         run build and starts static server # no hot reload 
+  build        (b)                            run build
+  deploy       (d)       [preset]             deploy site to server
+  new          (n)       [site-name]   [-y]   generate new site
+  plugin       (p)       [plugin-name] [-y]   generate plugin boilerplate
+  theme        (t)       [theme-name]  [-y]   generate theme boilerplate
 
 For more information visit:
 https://cogearjs.org
@@ -132,7 +133,13 @@ Let's take a look at the workflow.
 For more info, visit official website:
 [https://cogearjs.org](https://cogearjs.org)
 
-# TODO
+# Changelog
+
+## v1.1
+
+* Replaced [HTMLWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) because its extremly inperformance if page count is over thousand with simple _webpack-compiled_ assets injection.
+* Changed workflow from `Webpack → Build` to `Preload → Webpack → Build`.
+* Make almost all processing operations asynchronously – huge speed performance.<br>Build of __10.000 pages__ _(~ 3 pages per day in 10 years)_ tooks __14s__ now.
 
 * Automated testing w/Jest
 * CI

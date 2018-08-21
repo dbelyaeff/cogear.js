@@ -14,36 +14,37 @@ module.exports = merge(common, {
 		app: [path.join(cogear.baseDir,'lib','hot.js'),path.join(cogear.options.src,'app')]
 	},
 	mode: "development",
-	devtool: "sourcemap",
-	devServer: {
-		hot: true,
-		compress: true,
-		inline: true,
-		watchContentBase: true,
-		// open: true,
-		stats: {
-			colors: true,
-			hash: false,
-			version: false,
-			timings: false,
-			assets: false,
-			chunks: false,
-			modules: false,
-			reasons: false,
-			children: false,
-			source: false,
-			errors: false,
-			errorDetails: false,
-			warnings: false,
-			publicPath: false
-		}
-	},
+	devtool: 'eval-source-map',
+	// devServer: {
+	// 	hot: true,
+	// 	compress: true,
+	// 	inline: true,
+	// 	watchContentBase: true,
+	// 	// open: true,
+	// 	stats: {
+	// 		colors: true,
+	// 		hash: false,
+	// 		version: false,
+	// 		timings: false,
+	// 		assets: false,
+	// 		chunks: false,
+	// 		modules: false,
+	// 		reasons: false,
+	// 		children: false,
+	// 		source: false,
+	// 		errors: false,
+	// 		errorDetails: false,
+	// 		warnings: false,
+	// 		publicPath: false
+	// 	}
+	// },
 	module: {
 		rules: [
 			// CSS preprocessors
 			{
 				test: /\.(sa|sc|c)ss/,
 				use: [
+					// "cache-loader",
 					"style-loader",
 					"css-loader",
 					{ loader : "postcss-loader", options: postcssConfig},
@@ -53,6 +54,7 @@ module.exports = merge(common, {
 			{
 				test: /\.styl/,
 				use: [
+					// "cache-loader",
 					"style-loader",
 					"css-loader",
 					{ loader : "postcss-loader", options: postcssConfig},
@@ -62,6 +64,7 @@ module.exports = merge(common, {
 			{
 				test: /\.less/,
 				use: [
+					// "cache-loader",
 					"style-loader",
 					"css-loader",
 					{ loader : "postcss-loader", options: {config:postcssConfig}},

@@ -1,8 +1,8 @@
-const path = require("path"),
-	webpack = require("webpack")
+const path = require("path");
+const webpack = require("webpack");
 	// ManifestPlugin = require("webpack-manifest-plugin"),
-	CleanWebpackPlugin = require('clean-webpack-plugin'),
-	nodeExternals = require('webpack-node-externals');
+	// CleanWebpackPlugin = require('clean-webpack-plugin'),
+const nodeExternals = require('webpack-node-externals');
 	// Exporting a function with Cogear.JS instance as an argument
 let htmlLoaderOptions = {
 	ignoreCustomFragments: [/\{\{.*?}}/],
@@ -26,7 +26,7 @@ module.exports = {
 	},
 	// Output params
 	output: {
-		filename: "[name].[hash:5].js",
+		filename: cogear.mode === 'development' ? "[name].js?[hash:5]" : "[name].[hash:5].js",
 		chunkFilename: ".chunks/[name].[hash:5].js",
 		hotUpdateChunkFilename: ".hot/[name].[hash:5].js",
 		path: cogear.options.output,
@@ -43,7 +43,7 @@ module.exports = {
 							context: process.cwd(),
 							limit: 1024*8,
 							name (file) {
-								if (cogear.options.mode === 'development') {
+								if (cogear.mode === 'development') {
 									return '[name].[ext]?[hash:4]'
 								}
 								return '[name]-[hash:6].[ext]'
@@ -72,7 +72,7 @@ module.exports = {
 					loader: "file-loader",
 					options: {
 						name (file) {
-							if (cogear.options.mode === 'development') {
+							if (cogear.mode === 'development') {
 								return '[name].[ext]?[hash:4]'
 							}
 							return '[name]-[hash:6].[ext]'
@@ -81,40 +81,6 @@ module.exports = {
 						publicPath: '/fonts/',
 					}
 				}],
-			},
-			// HTML preprocessors
-			{
-				test: /\.(pug|jade)/,
-				use: [{
-						loader: "pug-loader",
-				}]
-			},
-			{
-				test: /\.md/,
-				use: ["json-loader", "yaml-frontmatter-loader"]
-			},
-			{
-				test: /\.html/,
-				use: [{
-						loader:"html-loader",
-						options: htmlLoaderOptions
-				}]
-			},
-			{
-				test: /\.hbs/,
-				use: [{
-						loader:"hbs-loader",
-				}]
-			},
-			{
-				test: /\.ejs/,
-				use: [
-					{
-						loader:"ejs-loader",
-						options: {
-							root: cogear.themeDir || cogear.options.src
-						}
-				}]
 			},
 			// JavaScript preprocessors
 			{
@@ -130,10 +96,11 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(cogear.options.output,{verbose: false}),
+		// new CleanWebpackPlugin(cogear.options.output,{verbose: false}),
 		// new ManifestPlugin(),
 		// new webpack.AutomaticPrefetchPlugin(),
 		// new webpack.optimize.ModuleConcatenationPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.DefinePlugin({
 			'cogear':{
 				'options': JSON.stringify(cogear.options),
@@ -142,29 +109,34 @@ module.exports = {
 			} 
 		}),			
 	],
-	optimization: {
-		splitChunks: {
-			chunks: "async",
-			minSize: 30000,
-			maxSize: 0,
-			minChunks: 1,
-			maxAsyncRequests: 5,
-			maxInitialRequests: 3,
-			automaticNameDelimiter: "~",
-			name: true,
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					priority: -10
-				},
-				default: {
-					minChunks: 2,
-					priority: -20,
-					reuseExistingChunk: true
-				}
-			}
-		}
-	},
+	// optimization:{
+  //   splitChunks: {
+  //     chunks: "all",
+  //   }
+  // },
+	// optimization: {
+	// 	splitChunks: {
+	// 		chunks: "async",
+	// 		minSize: 30000,
+	// 		maxSize: 0,
+	// 		minChunks: 1,
+	// 		maxAsyncRequests: 5,
+	// 		maxInitialRequests: 3,
+	// 		automaticNameDelimiter: "~",
+	// 		name: true,
+	// 		cacheGroups: {
+	// 			vendors: {
+	// 				test: /[\\/]node_modules[\\/]/,
+	// 				priority: -10
+	// 			},
+	// 			default: {
+	// 				minChunks: 2,
+	// 				priority: -20,
+	// 				reuseExistingChunk: true
+	// 			}
+	// 		}
+	// 	}
+	// },
 	node: {
 		fs: "empty"
 	},
