@@ -89,12 +89,12 @@ module.exports = {
 			},
 			// JavaScript preprocessors
 			{
-				test: /\.js/,
+				test: /\.js$/,
 				loader: "babel-loader",
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.coffee/,
+				test: /\.coffee$/,
 				loader: "babel-loader!coffee-loader",
 				exclude: /node_modules/,
 			}
