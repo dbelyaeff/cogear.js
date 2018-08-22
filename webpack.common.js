@@ -26,7 +26,12 @@ module.exports = {
 	},
 	// Output params
 	output: {
-		filename: cogear.mode === 'development' ? "[name].js?[hash:5]" : "[name].[hash:5].js",
+		filename(){
+			if(cogear.mode === 'development'){
+				return "[name].js?[hash:5]";
+			}
+			return  "[name].[hash:5].js";
+		},
 		chunkFilename: ".chunks/[name].[hash:5].js",
 		hotUpdateChunkFilename: ".hot/[name].[hash:5].js",
 		path: cogear.options.output,
