@@ -1,3 +1,13 @@
+# 1.2
+
+## 1.2.0
+* Add new hooks for cogear-plugin-blog.
+* Add watcher for config.yaml which recompiles all pages on config
+changes.
+* Refactor core plugins for webpack.
+* Refactor preload and build.
+* Resources in dev mode are being linked now (just serve static byexpress from given folders) instead of copied.
+
 # 1.1
 
 ## v1.1.0
