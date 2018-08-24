@@ -90,12 +90,12 @@ module.exports = {
 			// JavaScript preprocessors
 			{
 				test: /\.js$/,
-				loader: "babel-loader",
+				loader: "babel-loader?cacheDirectory=true",
 				exclude: /node_modules/,
 			},
 			{
 				test: /\.coffee$/,
-				loader: "babel-loader!coffee-loader",
+				loader: "babel-loader?cacheDirectory=true!coffee-loader",
 				exclude: /node_modules/,
 			}
 		]
