@@ -20,9 +20,6 @@
   "bin": {
     "cogear": "./bin/cogear.js"
   },
-  "scripts": {
-    "test": "jest"
-  },
   "preferGlobal": true,
   "devDependencies": {},
   "dependencies": {

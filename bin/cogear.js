@@ -1,4 +1,3 @@
 #!/usr/bin/env node
-const Cogear = require('../lib/cogear.js')
-
-new Cogear()
+const CogearJS = require('../lib/cogear.js')
+new CogearJS()
