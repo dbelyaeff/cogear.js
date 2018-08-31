@@ -2,6 +2,9 @@ const path = require("path");
 const webpack = require("webpack");
 	// ManifestPlugin = require("webpack-manifest-plugin"),
 	// CleanWebpackPlugin = require('clean-webpack-plugin'),
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const WebpackBar = require('webpackbar');
+
 const nodeExternals = require('webpack-node-externals');
 	// Exporting a function with Cogear.JS instance as an argument
 let htmlLoaderOptions = {
@@ -10,18 +13,25 @@ let htmlLoaderOptions = {
 	// root: cogear.themeDir || path.join(cogear.options.src),
 	// minimize: true
 }
-let resolveModules = [cogear.options.src,path.join(process.cwd(),'node_modules'),'node_modules'] 
+let resolveModules = [
+	path.join(process.cwd(),'node_modules'),
+	path.join(__dirname,'node_modules'),
+	cogear.options.src
+] 
 if(cogear.themeDir){
 	resolveModules.unshift(cogear.themeDir)
 }
 module.exports = {
 	context: __dirname,
 	resolve: {
-		extensions: [".js", ".json", ".coffee", ".Vue",".jsx",".pug",".ejs",".html"], // File extensions that will be resolved automatically
+		extensions: [".js", ".json", ".coffee"], // File extensions that will be resolved automatically
 		alias: {
 			"#": path.join(process.cwd(),'/'), // Alias for project root
 			"@": cogear.themeDir ? path.join(cogear.themeDir,'/') : '' // Alias for theme root
 		},
+		modules: resolveModules
+	},
+	resolveLoader:{
 		modules: resolveModules
 	},
 	// Output params
@@ -35,6 +45,7 @@ module.exports = {
 		chunkFilename: ".chunks/[name].[hash:5].js",
 		hotUpdateChunkFilename: ".hot/[name].[hash:5].js",
 		path: cogear.options.output,
+		pathinfo: false,
 		// publicPath: '/cdn/'
 	},
 	module: {
@@ -90,13 +101,16 @@ module.exports = {
 			// JavaScript preprocessors
 			{
 				test: /\.js$/,
-				loader: "babel-loader?cacheDirectory=true",
-				exclude: /node_modules/,
+				loader: "babel-loader",
+				exclude: /node_modules/
 			},
 			{
 				test: /\.coffee$/,
-				loader: "babel-loader?cacheDirectory=true!coffee-loader",
-				exclude: /node_modules/,
+				loader: "babel-loader!coffee-loader",
+				exclude: file => (
+					/node_modules/.test(file) &&
+					!/\.vue\.js/.test(file)
+				)
 			}
 		]
 	},
@@ -105,14 +119,38 @@ module.exports = {
 		// new ManifestPlugin(),
 		// new webpack.AutomaticPrefetchPlugin(),
 		// new webpack.optimize.ModuleConcatenationPlugin(),
-		new webpack.NoEmitOnErrorsPlugin(),
+		// new webpack.NoEmitOnErrorsPlugin(),
+		new HardSourceWebpackPlugin({
+			info: {
+				mode: 'none',
+				level: 'error'
+			}
+		}),
+		new WebpackBar(),
+		// new HardSourceWebpackPlugin.ParallelModulePlugin({
+    //   // How to launch the extra processes. Default:
+    //   fork: (fork, compiler, webpackBin) => fork(
+    //     webpackBin(),
+    //     ['--config', __filename], {
+    //       silent: true,
+    //     }
+    //   ),
+    //   // Number of workers to spawn. Default:
+    //   numWorkers: () => require('os').cpus().length,
+    //   // Number of modules built before launching parallel building. Default:
+    //   minModules: 10,
+		// }),
+		// new webpack.DllPlugin({
+		// 	path: path.join(cogear.options.output, "[name]-manifest.json"),
+		// 	name: "[name]_[hash]"
+		// }),
 		new webpack.DefinePlugin({
 			'cogear':{
 				'options': JSON.stringify(cogear.options),
 				'config': JSON.stringify(cogear.config),
 				'package': JSON.stringify(cogear.package),
 			} 
-		}),			
+		}),	
 	],
 	// optimization:{
   //   splitChunks: {

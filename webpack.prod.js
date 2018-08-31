@@ -21,7 +21,8 @@ module.exports = merge(common, {
 					test: /\.(sa|sc|c)ss$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						"cache-loader",
+						//"vue-style-loader",
+						// "cache-loader",
 						{ loader: 'css-loader', options: { importLoaders: 1 } },
 						{ loader : "postcss-loader", options: postcssConfig},
 						"sass-loader"
@@ -31,7 +32,8 @@ module.exports = merge(common, {
 					test: /\.styl$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						"cache-loader",
+						//"vue-style-loader",
+						// "cache-loader",
 						{ loader: 'css-loader', options: { importLoaders: 1 } },
 						{ loader : "postcss-loader", options: postcssConfig},
 						"stylus-loader"
@@ -41,7 +43,8 @@ module.exports = merge(common, {
 					test: /\.less$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						"cache-loader",
+						//"vue-style-loader",
+						// "cache-loader",
 						{ loader: 'css-loader', options: { importLoaders: 1 } },
 						{ loader : "postcss-loader", options: {config:postcssConfig}},
 						"less-loader"
@@ -51,8 +54,8 @@ module.exports = merge(common, {
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: "css/[name].[hash:5].css",
-				chunkFilename: "css/[id].[hash:5].css"
+				filename: "[name].[hash:5].css",
+				chunkFilename: "[id].[hash:5].css"
 			})
 		],
 		optimization: {
