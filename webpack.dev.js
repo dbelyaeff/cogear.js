@@ -11,7 +11,7 @@ module.exports = merge(common, {
 	// "webpack-dev-server?http://localhost:9000","webpack/hot/dev-server",
 	entry: {
 		// app: [`webpack-dev-server/client?http://${cogear.options.host}:${cogear.options.port}`,"webpack/hot/dev-server",path.join(cogear.options.src,'app')]
-		app: [path.join(cogear.baseDir,'lib','hot.js'),path.join(cogear.options.src,'app')]
+		app: [path.join(cogear.baseDir,'lib','hot.js'),path.join(cogear.options.src,'app.js')]
 	},
 	mode: "development",
 	devtool: 'eval-source-map',

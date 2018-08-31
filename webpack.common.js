@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const webpack = require("webpack");
 	// ManifestPlugin = require("webpack-manifest-plugin"),
 	// CleanWebpackPlugin = require('clean-webpack-plugin'),
@@ -13,6 +14,29 @@ let htmlLoaderOptions = {
 	// root: cogear.themeDir || path.join(cogear.options.src),
 	// minimize: true
 }
+
+let plugins = [
+	new WebpackBar(),
+	// new webpack.DllPlugin({
+	// 	path: path.join(cogear.options.output, "[name]-manifest.json"),
+	// 	name: "[name]_[hash]"
+	// }),
+	new webpack.DefinePlugin({
+		'cogear':{
+			'options': JSON.stringify(cogear.options),
+			'config': JSON.stringify(cogear.config),
+			'package': JSON.stringify(cogear.package),
+		} 
+	}),	
+]
+if(fs.existsSync(path.join(process.cwd(),'node_modules'))){
+	plugins.unshift(new HardSourceWebpackPlugin({
+		info: {
+			mode: 'none',
+			level: 'error'
+		},
+	}))
+}
 let resolveModules = [
 	path.join(process.cwd(),'node_modules'),
 	path.join(__dirname,'node_modules'),
@@ -22,7 +46,7 @@ if(cogear.themeDir){
 	resolveModules.unshift(cogear.themeDir)
 }
 module.exports = {
-	context: __dirname,
+	context: process.cwd(),
 	resolve: {
 		extensions: [".js", ".json", ".coffee"], // File extensions that will be resolved automatically
 		alias: {
@@ -45,7 +69,7 @@ module.exports = {
 		chunkFilename: ".chunks/[name].[hash:5].js",
 		hotUpdateChunkFilename: ".hot/[name].[hash:5].js",
 		path: cogear.options.output,
-		pathinfo: false,
+		// pathinfo: false,
 		// publicPath: '/cdn/'
 	},
 	module: {
@@ -114,44 +138,7 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [
-		// new CleanWebpackPlugin(cogear.options.output,{verbose: false}),
-		// new ManifestPlugin(),
-		// new webpack.AutomaticPrefetchPlugin(),
-		// new webpack.optimize.ModuleConcatenationPlugin(),
-		// new webpack.NoEmitOnErrorsPlugin(),
-		new HardSourceWebpackPlugin({
-			info: {
-				mode: 'none',
-				level: 'error'
-			}
-		}),
-		new WebpackBar(),
-		// new HardSourceWebpackPlugin.ParallelModulePlugin({
-    //   // How to launch the extra processes. Default:
-    //   fork: (fork, compiler, webpackBin) => fork(
-    //     webpackBin(),
-    //     ['--config', __filename], {
-    //       silent: true,
-    //     }
-    //   ),
-    //   // Number of workers to spawn. Default:
-    //   numWorkers: () => require('os').cpus().length,
-    //   // Number of modules built before launching parallel building. Default:
-    //   minModules: 10,
-		// }),
-		// new webpack.DllPlugin({
-		// 	path: path.join(cogear.options.output, "[name]-manifest.json"),
-		// 	name: "[name]_[hash]"
-		// }),
-		new webpack.DefinePlugin({
-			'cogear':{
-				'options': JSON.stringify(cogear.options),
-				'config': JSON.stringify(cogear.config),
-				'package': JSON.stringify(cogear.package),
-			} 
-		}),	
-	],
+	plugins,
 	// optimization:{
   //   splitChunks: {
   //     chunks: "all",

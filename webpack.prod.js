@@ -11,7 +11,7 @@ const postcssConfig = require('./postcss.config.js')
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 module.exports = merge(common, {
 		entry: {
-			app: [path.join(cogear.options.src, "app")]
+			app: [path.join(cogear.options.src, "app.js")]
 		},
 		mode: "production",
 		module: {
