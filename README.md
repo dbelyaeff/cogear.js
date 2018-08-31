@@ -97,33 +97,29 @@ All available options can be seen via `--git` (or shortcut `-h`) command.
 ```bash
 > cogear -h
 
-Usage: cogear [command]
+  Usage: cogear [command] [options]
 
-Runs in development mode by default (without [command]).
+  Options:
 
-Options:
+    -v, --version                     output the version number
+    -s, --source [string]             custom source directory.
+    -o, --output [string]             custom output directory.
+    -p, --port   [int]                port to serve site on.
+    -h, --host   [string]             host to serve site on.
+    -n, --no-open                     do not open browser window automatically after built.
+    -w, --verbose                     verbose Webpack output.
+    -y, --yes                         ignore all questions (for generators).
+    -h, --help                        output usage information
 
-  -h, --help          output usage information
-  -s, --src           set source directory, default: ./src
-  -o, --output        set output directory, default: ./public
-  -h, --host          set host for local server, default: localhost
-  -p, --port          set port for local server, default: 9000
-  -o, --open          if set to false, browser will not be opened after build, default: false
-  -v, --version       print current version
-  -w, --verbose       set webpack verbose mode, default: true
-  -y                  yes to all questions, for generators
+  Commands:
 
-Commands:
-
-  command   (alias)     [optional]      description
-
-  [dev]        (dev)                          run dev server # w/hot-reload [DEFAULT]
-  production   (prod)                         run build and starts static server # no hot reload 
-  build        (b)                            run build
-  deploy       (d)       [preset]             deploy site to server
-  new          (n)       [site-name]   [-y]   generate new site
-  plugin       (p)       [plugin-name] [-y]   generate plugin boilerplate
-  theme        (t)       [theme-name]  [-y]   generate theme boilerplate
+    development|dev                   Development mode with hot-reload (default).
+    production|prod                   Production mode: build and serve.
+    build|b                           Build mode: just build.
+    deploy|d <preset>                 Deploy mode: build (if not) and deploy.
+    new|init [options] <site-name>    Generate new site.
+    plugin|p [options] <plugin-name>  Generate new plugin.
+    theme|t [options] <theme-name>    Generate new theme.
 
 For more information visit:
 https://cogearjs.org
@@ -134,6 +130,11 @@ For more info, visit official website:
 [https://cogearjs.org](https://cogearjs.org)
 
 # Changelog
+## v1.2.2
+* Moved to Commander.JS for cli arguments processing.
+* Added nicey WebpackBar to display compiling process.
+* Updated performance measurements.
+* Huge speed upgrades for Webpack with HardSourceWebpackPlugin.
 
 ## v1.2.0
 

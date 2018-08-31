@@ -1,5 +1,11 @@
 # 1.2
 
+## 1.2.2
+* Moved to Commander.JS for cli arguments processing.
+* Added nicey WebpackBar to display compiling process.
+* Updated performance measurements.
+* Huge speed upgrades for Webpack with HardSourceWebpackPlugin.
+
 ## 1.2.0
 * Add new hooks for cogear-plugin-blog.
 * Add watcher for config.yaml which recompiles all pages on config
