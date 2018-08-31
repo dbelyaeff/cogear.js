@@ -19,7 +19,7 @@ Performs nearly 1.000 pages per second (depends on the pages content and raw com
 * 📦 **For any hosting**<br>
 Doesn't requires **any database** (data stored in flat files) and works on **any hosting** (as it produces *static html and assets files*).
 * 🚚  **Deploy built in**<br>
-[Create a preset](/docs/deploy) and update your site to the server via FTP, SFTP or even `rsync`.
+[Create a preset](https://cogearjs.org/docs/deploy) and update your site to the server via FTP, SFTP or even `rsync`.
 * 🔓 **Secure. No updates needed**<br> 
 Just forget about annoying regular update from usual CMS.<br>
 It's **100% secure** for hacking because there is no backend after being deployed to the server.
