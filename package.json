@@ -1,14 +1,6 @@
 {
   "name": "cogear",
-<<<<<<< HEAD
-<<<<<<< HEAD
   "version": "1.2.5",
-=======
-  "version": "1.2.4",
->>>>>>> 7098b6f... 1.2.4
-=======
-  "version": "1.2.4",
->>>>>>> 7098b6f39cfc5afa379ed080e36a470c5be95548
   "description": "Cogear.JS – modern static websites generator (Node.JS/Webpack)",
   "main": "./lib/cogear.js",
   "repository": "https://github.com/codemotion/cogear.js",
