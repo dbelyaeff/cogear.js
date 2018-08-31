@@ -9,14 +9,24 @@ It's inspired by [Jekyll](https://jekyllrb.com) and others, but built on the top
 
 Providing awesome experience of on-the-fly hot reloading to instantly implementing any changes.
 
-## Features
-* It can be usefull for building modern static websites (using [Vue.JS](https://vuejs.org), [React](https://reactjs.org), [Angular](https://angular.io), [Ember](https://emberjs.org)) or even for rapid prototyping.
-* It's **blazing fast and reliable** being online. Server can handle thousands requests per seconds to serve static files (even on tiny VPS).
-* It doesn't requires **any database** and works on **every hosting** (as it produces *static html and assets files*).
-* It's **100% secure** for hacking because it has no backend after being deployed to the server.
-* It can use **any modern frontend stack** because it uses **Webpack** in system core.
 
-Using [Github Pages](https://pages.github.com) (or any similar project) you can host generated site **for free**.
+## Features
+* 🖥  **Modern stack technologies** <br>Build modern static websites with bundled scripts and styles.<br>Rapidly prototype and instantly deploy to the server.<br>
+Use **any modern frontend stack** (**webpack** bundled) – [Vue.JS](https://vuejs.org), [React](https://reactjs.org), [Angular](https://angular.io), [Ember](https://emberjs.org), etc.
+* 🚀  **Blazing fast and reliable**<br>
+Performs nearly 1.000 pages per second (depends on the pages content and raw computer processor power).<br>
+ Being online. Server can handle thousands requests per seconds to serve static files (even on tiny VPS).
+* 📦 **For any hosting**<br>
+Doesn't requires **any database** (data stored in flat files) and works on **any hosting** (as it produces *static html and assets files*).
+* 🚚  **Deploy built in**<br>
+[Create a preset](/docs/deploy) and update your site to the server via FTP, SFTP or even `rsync`.
+* 🔓 **Secure. No updates needed**<br> 
+Just forget about annoying regular update from usual CMS.<br>
+It's **100% secure** for hacking because there is no backend after being deployed to the server.
+* <i class="fab fa-osi" style="color: green"></i> **Free. Open Sourced**<br>
+Use it for free. For any needs. Forever.<br>
+
+[Github Pages](https://pages.github.com) (or any similar project) you can host generated site **for free**.
 
 ### What it can be used for:
 * Rapid site prototyping, 
