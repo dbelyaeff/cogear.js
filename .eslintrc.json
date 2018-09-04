@@ -1,3 +1,40 @@
 {
-    "extends": "standard"
+	"env": {
+			"browser": true,
+			"node": true,
+			"es6": true
+	},
+	"extends": ["eslint:recommended"],
+	"parserOptions": {
+			"ecmaVersion": 8,
+			"sourceType": "module"
+	},
+	"plugins": [
+	],
+	"globals":{
+		"cogear": true
+	},
+	"rules": {
+			"no-console": 0,
+			"disallowMultipleVarDecl": 0,
+			"maximumLineLength": 0,
+			"indent": [
+					"error",
+					2
+			],
+			"linebreak-style": [
+					"error",
+					"unix"
+			],
+			"quotes": [
+					"error",
+					"single"
+			],
+			"semi": [
+					"error",
+					"always"
+			],
+			"no-useless-escape": 0,
+			"no-unused-vars": 1
+	}
 }
