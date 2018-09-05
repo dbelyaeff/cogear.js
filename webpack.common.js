@@ -35,7 +35,7 @@ if(cogear.themeDir){
   resolveModules.unshift(cogear.themeDir);
 }
 module.exports = {
-  context: process.cwd(),
+  context: __dirname,
   resolve: {
     extensions: ['.js', '.json', '.coffee'], // File extensions that will be resolved automatically
     alias: {
