@@ -14,7 +14,7 @@ yarn add cogear-theme-{{name}}
 npm install cogear-theme-{{name}}
 ```
 
-After that you need to edit your site `config.json` to set up installed theme.
+After that you need to edit your site `config.yaml` to set up installed theme.
 
 # Usage
 

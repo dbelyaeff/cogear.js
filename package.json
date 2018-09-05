@@ -22,11 +22,9 @@
   },
   "preferGlobal": true,
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.2",
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "test-console": "^1.1.0"
+    "eslint-plugin-import": "^2.14.0"
   },
   "dependencies": {
     "babel-core": "^6.26.3",

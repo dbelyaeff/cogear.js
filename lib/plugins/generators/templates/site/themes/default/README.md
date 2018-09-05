@@ -16,7 +16,7 @@ This theme will be installed by default.
 
 # How to select theme
 
-After new site is crafted, you may change `theme` param in `./config.json` file to set current theme.
+After new site is crafted, you may change `theme` param in `./config.yaml` file to set current theme.
 
 All the themes for [Cogear.JS](https://cogearjs.org) a prefixed in `npm` with `cogear-theme-`.
 
