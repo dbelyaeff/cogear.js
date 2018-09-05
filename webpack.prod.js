@@ -1,14 +1,11 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const webpack = require('webpack');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const postcssConfig = require('./postcss.config.js');
 
-
-// const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 module.exports = merge(common, {
   entry: {
     app: [path.join(cogear.options.src, 'app.js')]
@@ -65,11 +62,11 @@ module.exports = merge(common, {
         parallel: true,
         sourceMap: false // set to true if you want JS source maps
       }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessor: require('cssnano'),
-        cssProcessorOptions: { discardComments: { removeAll: true } },
-        canPrint: true
-      }),
+      // new OptimizeCSSAssetsPlugin({
+      //   cssProcessor: require('cssnano'),
+      //   cssProcessorOptions: { discardComments: { removeAll: true } },
+      //   canPrint: true
+      // }),
     ]
   }
 });

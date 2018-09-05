@@ -9,11 +9,12 @@ let plugins = [
   // 	path: path.join(cogear.options.output, "[name]-manifest.json"),
   // 	name: "[name]_[hash]"
   // }),
+  new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.DefinePlugin({
     'cogear':{
       'options': JSON.stringify(cogear.options),
       'config': JSON.stringify(cogear.config),
-      'package': JSON.stringify(cogear.package),
+      // 'package': JSON.stringify(cogear.package),
     } 
   }),	
 ];
@@ -70,7 +71,7 @@ module.exports = {
           options: {
             context: process.cwd(),
             limit: 1024*8,
-            name (file) {
+            name () {
               if (cogear.mode === 'development') {
                 return '[name].[ext]?[hash:4]';
               }
@@ -99,7 +100,7 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            name (file) {
+            name () {
               if (cogear.mode === 'development') {
                 return '[name].[ext]?[hash:4]';
               }
@@ -127,34 +128,6 @@ module.exports = {
     ]
   },
   plugins,
-  // optimization:{
-  //   splitChunks: {
-  //     chunks: "all",
-  //   }
-  // },
-  // optimization: {
-  // 	splitChunks: {
-  // 		chunks: "async",
-  // 		minSize: 30000,
-  // 		maxSize: 0,
-  // 		minChunks: 1,
-  // 		maxAsyncRequests: 5,
-  // 		maxInitialRequests: 3,
-  // 		automaticNameDelimiter: "~",
-  // 		name: true,
-  // 		cacheGroups: {
-  // 			vendors: {
-  // 				test: /[\\/]node_modules[\\/]/,
-  // 				priority: -10
-  // 			},
-  // 			default: {
-  // 				minChunks: 2,
-  // 				priority: -20,
-  // 				reuseExistingChunk: true
-  // 			}
-  // 		}
-  // 	}
-  // },
   node: {
     fs: 'empty'
   },
