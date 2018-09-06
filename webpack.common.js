@@ -27,15 +27,15 @@ if(fs.existsSync(path.join(process.cwd(),'node_modules'))){
   }));
 }
 let resolveModules = [
-  path.join(process.cwd(),'node_modules'),
   path.join(__dirname,'node_modules'),
+  path.join(process.cwd(),'node_modules'),
   cogear.options.src
 ]; 
 if(cogear.themeDir){
   resolveModules.unshift(cogear.themeDir);
 }
 module.exports = {
-  context: __dirname,
+  context: cogear.baseDir,
   resolve: {
     extensions: ['.js', '.json', '.coffee'], // File extensions that will be resolved automatically
     alias: {

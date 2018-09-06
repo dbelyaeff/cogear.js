@@ -9,6 +9,8 @@ It's inspired by [Jekyll](https://jekyllrb.com) and others, but built on the top
 
 Providing awesome experience of on-the-fly hot reloading to instantly implementing any changes.
 
+# Introduction video
+[![Introduction to Cogear.JS](https://i.imgur.com/ct7xpPF.png)](http://www.youtube.com/watch?v=gL3W4lA6FP0 "Introduction to Cogear.JS")
 
 ## Features
 * 🖥  **Modern stack technologies** <br>Build modern static websites with bundled scripts and styles.<br>Rapidly prototype and instantly deploy to the server.<br>
