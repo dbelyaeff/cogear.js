@@ -10,7 +10,7 @@ title: 'Cogear.JS – modern static websites generator'
 
 [Docs](https://cogearjs.org/docs) 
 [Blog](https://cogearjs.org/blog) 
-[Videos](https://cogearjs.org/videos) 
+[Videos](https://cogearjs.org/video) 
 [Github](https://github.com/codemotion/cogear.js) 
 [Issues](https://github.com/codemotion/cogear.js/issues) 
 [License](https://cogearjs.org/docs/license) 
