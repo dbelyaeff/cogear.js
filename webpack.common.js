@@ -26,14 +26,15 @@ if(fs.existsSync(path.join(process.cwd(),'node_modules'))){
     },
   }));
 }
-let resolveModules = [
-  path.join(__dirname,'node_modules'),
-  path.join(process.cwd(),'node_modules'),
-  cogear.options.src
-]; 
-if(cogear.themeDir){
-  resolveModules.unshift(cogear.themeDir);
-}
+// let resolveModules = [
+//   path.join(__dirname,'node_modules'),
+//   // path.join(process.cwd(),'node_modules'),
+//   cogear.options.src
+// ]; 
+// if(cogear.themeDir){
+//   resolveModules.unshift(cogear.themeDir);
+// }
+// console.log(resolveModules);
 module.exports = {
   context: cogear.baseDir,
   resolve: {
@@ -42,11 +43,11 @@ module.exports = {
       '#': path.join(process.cwd(),'/'), // Alias for project root
       '@': cogear.themeDir ? path.join(cogear.themeDir,'/') : '' // Alias for theme root
     },
-    modules: resolveModules
+    // modules: resolveModules
   },
-  resolveLoader:{
-    modules: resolveModules
-  },
+  // resolveLoader:{
+  //   modules: resolveModules
+  // },
   // Output params
   output: {
     filename(){
