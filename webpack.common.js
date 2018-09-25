@@ -5,16 +5,11 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const WebpackBar = require('webpackbar');
 let plugins = [
   new WebpackBar(),
-  // new webpack.DllPlugin({
-  // 	path: path.join(cogear.options.output, "[name]-manifest.json"),
-  // 	name: "[name]_[hash]"
-  // }),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.DefinePlugin({
     'cogear':{
       'options': JSON.stringify(cogear.options),
       'config': JSON.stringify(cogear.config),
-      // 'package': JSON.stringify(cogear.package),
     } 
   }),	
 ];
@@ -26,15 +21,6 @@ if(fs.existsSync(path.join(process.cwd(),'node_modules'))){
     },
   }));
 }
-// let resolveModules = [
-//   path.join(__dirname,'node_modules'),
-//   // path.join(process.cwd(),'node_modules'),
-//   cogear.options.src
-// ]; 
-// if(cogear.themeDir){
-//   resolveModules.unshift(cogear.themeDir);
-// }
-// console.log(resolveModules);
 module.exports = {
   context: cogear.baseDir,
   resolve: {
@@ -43,11 +29,7 @@ module.exports = {
       '#': path.join(process.cwd(),'/'), // Alias for project root
       '@': cogear.themeDir ? path.join(cogear.themeDir,'/') : '' // Alias for theme root
     },
-    // modules: resolveModules
   },
-  // resolveLoader:{
-  //   modules: resolveModules
-  // },
   // Output params
   output: {
     filename(){
@@ -59,8 +41,6 @@ module.exports = {
     chunkFilename: '.chunks/[name].[hash:5].js',
     hotUpdateChunkFilename: '.hot/[name].[hash:5].js',
     path: cogear.options.output,
-    // pathinfo: false,
-    // publicPath: '/cdn/'
   },
   module: {
     rules: [
