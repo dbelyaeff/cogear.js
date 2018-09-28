@@ -3,7 +3,7 @@
 [Requirements](#requirements) | [Installation](#installation) | [Usage](#usage) | [Options](#options) | [Website](https://cogearjs.org)
 
 # About
-**Cogear.JS** is a static site generator build with [Node.JS](https://nodejs.org) and based on [Webpack](https://webpack.js.org) (v4.6).
+**Cogear.JS** is a static site generator built with [Node.JS](https://nodejs.org) and based on [Webpack](https://webpack.js.org) (v4.6).
 
 It's inspired by [Jekyll](https://jekyllrb.com) and others, but built on the top of the latest frontend technologies.
 
@@ -51,7 +51,7 @@ Or any other site type with great amount of user-generated content which relies 
 
 # Requirements
 
-You have [Node.JS](https://nodejs.org) (9.x or higher) and [NPM](https://www.npmjs.com) (usually comes together) to be installed.
+You need [Node.JS](https://nodejs.org) (9.x or higher) and [NPM](https://www.npmjs.com) (usually comes together).
 
 [Download and install](https://nodejs.org/en/download/)
 
@@ -105,7 +105,7 @@ $ cogear production # build a site and run local server
 $ cogear deploy # deploy site to the default server
 ```
 # Options
-All available options can be seen via `--git` (or shortcut `-h`) command.
+You can find the option via the `--git` (or shortcut `-h`) command.
 ```bash
 $ cogear -h
 
@@ -153,8 +153,8 @@ For more info, visit official website:
 
 ## v1.2.0
 
-* Add new hooks for cogear-plugin-blog.
-* Add watcher for config.yaml which recompiles all pages on config
+* Added new hooks for cogear-plugin-blog.
+* Added watcher for config.yaml which re-compiles all pages on config
 changes.
 * Refactor core plugins for webpack.
 * Refactor preload and build.
@@ -162,7 +162,7 @@ changes.
 
 ## v1.1
 
-* Replaced [HTMLWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) because its extremly inperformance if page count is over thousand with simple _webpack-compiled_ assets injection.
+* Replaced [HTMLWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/) because its extremly slow if page count is over thousand with simple _webpack-compiled_ assets injection.
 * Changed workflow from `Webpack → Build` to `Preload → Webpack → Build`.
 * Make almost all processing operations asynchronously – huge speed performance.<br>Build of __10.000 pages__ _(~ 3 pages per day in 10 years)_ tooks __14s__ now.
 
