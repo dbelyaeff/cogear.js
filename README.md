@@ -85,9 +85,6 @@ $ cd ~/Sites
 Create a new site via command:
 ```bash
 $ cogear new awesome-static-site # where "site" is your site folder name
-
-# if you have a preset, use it's git repo address as fourth arg
-$ cogear new awesome-static-site https://github.com/codemotion/cogear-preset-docs
 ```
 
 After that go to site dir:
@@ -120,7 +117,7 @@ $ cogear --help
     -h, --host   [string]             host to serve site on.
     -n, --no-open                     do not open browser window automatically after built.
     -w, --verbose                     verbose Webpack output.
-        --help                        output usage information
+    --help                            output usage information
 
   Commands:
 
