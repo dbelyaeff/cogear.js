@@ -105,9 +105,9 @@ $ cogear production # build a site and run local server
 $ cogear deploy # deploy site to the default server
 ```
 # Options
-You can find the option via the `--git` (or shortcut `-h`) command.
+You can find the option via the `--help` command.
 ```bash
-$ cogear -h
+$ cogear --help
 
   Usage: cogear [command] [options]
 
@@ -120,7 +120,7 @@ $ cogear -h
     -h, --host   [string]             host to serve site on.
     -n, --no-open                     do not open browser window automatically after built.
     -w, --verbose                     verbose Webpack output.
-    -h, --help                        output usage information
+        --help                        output usage information
 
   Commands:
 
