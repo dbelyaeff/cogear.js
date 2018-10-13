@@ -1,6 +1,9 @@
 
 # Changelog
 
+# v1.3
+* Add full TypeScript and CoffeeScript support. Import these types of files or replace standart app.js/theme.js with these types.
+
 ## v1.2.16 
 * Remove -y option from CLI. If name is given no questions would be asked by interface.
 
