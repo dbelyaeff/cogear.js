@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const postcssConfig = require('./postcss.config.js');
 module.exports = merge(common, {
   entry: {
-    app: [path.join(cogear.baseDir,'lib','hot.js'),path.join(cogear.options.src,'app.js')]
+    app: [path.join(cogear.baseDir,'lib','hot.js'),path.join(cogear.options.src,'app')]
   },
   mode: 'development',
   devtool: 'eval-source-map',

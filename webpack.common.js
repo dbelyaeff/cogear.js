@@ -24,7 +24,7 @@ if(fs.existsSync(path.join(process.cwd(),'node_modules'))){
 module.exports = {
   context: cogear.baseDir,
   resolve: {
-    extensions: ['.js', '.json', '.coffee'], // File extensions that will be resolved automatically
+    extensions: ['.js', '.json', '.coffee','.ts'], // File extensions that will be resolved automatically
     alias: {
       '#': path.join(process.cwd(),'/'), // Alias for project root
       '@': cogear.themeDir ? path.join(cogear.themeDir,'/') : '' // Alias for theme root
@@ -97,6 +97,30 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options:{
+          configFile: path.resolve(__dirname, 'tsconfig.json')
+          // 'compilerOptions': {
+          //   'sourceMap': true,
+          //   'noImplicitAny': true,
+          //   'module': 'commonjs',
+          //   'target': 'es5',
+          //   'jsx': 'react',
+          //   'allowJs': true
+          // },
+          // 'include': [
+          //   path.join(process.cwd(),'**/*.ts')
+          // ],
+          // 'exclude': [
+          //   path.join(process.cwd(),'**/*.spec.ts')
+          // ]
+          
+          // configFile: fs.existsSync(path.join(process.cwd(),'tsconfig.json')) ? path.join(process.cwd(),'tsconfig.json') : path.join(cogear.baseDir,'tsconfig.json')
+        }
       },
       {
         test: /\.coffee$/,

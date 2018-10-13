@@ -8,7 +8,7 @@ const postcssConfig = require('./postcss.config.js');
 
 module.exports = merge(common, {
   entry: {
-    app: [path.join(cogear.options.src, 'app.js')]
+    app: [path.join(cogear.options.src, 'app')]
   },
   mode: 'production',
   module: {
