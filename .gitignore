@@ -1,7 +1,7 @@
 .DS_Store
 **/.DS_Store
 node_modules
-.vs_code
+.vscode
 yarn.lock
 yarn-error.log
 public
