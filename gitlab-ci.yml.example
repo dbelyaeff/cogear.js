@@ -1,0 +1,34 @@
+image: node:10
+
+stages:
+  - build
+  - publish
+
+build:
+  stage: build
+  only:
+    - master
+  cache:
+    paths:
+      - public
+      - node_modules
+  script: 
+   - npm i
+   - node node_modules/cogear/bin/cogear.js build
+
+pages:
+  stage: publish
+  when: on_success
+  dependencies: 
+    - build
+  only:
+    - master
+  cache:
+    paths:
+      - public
+  artifacts:
+    paths:
+      - public
+  script:
+    - echo "Deploy to gitlab pages"
+    - ls ./public
