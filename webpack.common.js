@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const WebpackBar = require('webpackbar');
+const os = require('os');
 let plugins = [
   new WebpackBar(),
   new webpack.optimize.OccurrenceOrderPlugin(),
@@ -13,7 +13,8 @@ let plugins = [
     } 
   }),	
 ];
-if(fs.existsSync(path.join(process.cwd(),'node_modules'))){
+if(os.platform() != 'win32' && fs.existsSync(path.join(process.cwd(),'node_modules'))){
+  const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
   plugins.unshift(new HardSourceWebpackPlugin({
     info: {
       mode: 'none',
