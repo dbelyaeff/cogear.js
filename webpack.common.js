@@ -9,7 +9,7 @@ let plugins = [
   new webpack.DefinePlugin({
     'cogear':{
       'options': JSON.stringify(cogear.options),
-      'config': JSON.stringify(cogear.config),
+      'config': JSON.stringify(cogear.config)
     } 
   }),	
 ];
@@ -41,14 +41,14 @@ module.exports = {
     },
     chunkFilename: '.chunks/[name].[hash:5].js',
     hotUpdateChunkFilename: '.hot/[name].[hash:5].js',
-    path: cogear.options.output,
+    path: cogear.options.output
   },
   module: {
     rules: [
       // Images loaders
       {
         test: /\.svg/,
-        use: {
+        use: [{
           loader: 'file-loader',
           options: {
             context: process.cwd(),
@@ -60,22 +60,20 @@ module.exports = {
               return '[name]-[hash:6].[ext]';
             },
             outputPath: 'images/',
-            publicPath: '/images/',
+            publicPath: '/images/'
           }
-        }
+        }]
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
-        use:[
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]-[hash:6].[ext]',
-              outputPath: 'images/',
-              publicPath: '/images/',
-            }
-          },
-        ]
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name]-[hash:6].[ext]',
+            outputPath: 'images/',
+            publicPath: '/images/'
+          }
+        }]
       },
       {
         test: /\.(woff|woff2|ttf|eot)$/i,
@@ -89,9 +87,9 @@ module.exports = {
               return '[name]-[hash:6].[ext]';
             },
             outputPath: 'fonts/',
-            publicPath: '/fonts/',
+            publicPath: '/fonts/'
           }
-        }],
+        }]
       },
       // JavaScript preprocessors
       {
@@ -103,7 +101,7 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
-        options:{
+        options: {
           configFile: path.resolve(__dirname, 'tsconfig.json')
           // 'compilerOptions': {
           //   'sourceMap': true,
@@ -128,7 +126,7 @@ module.exports = {
         loader: 'babel-loader!coffee-loader',
         exclude: file => (
           /node_modules/.test(file) &&
-					!/\.vue\.js/.test(file)
+          !/\.vue\.js/.test(file)
         )
       }
     ]
