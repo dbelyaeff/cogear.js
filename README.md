@@ -1,3 +1,5 @@
+# THE PROJECT IS DEPRECTATED
+
 # Cogear.JS – modern static websites generator
 
 [Requirements](#requirements) | [Installation](#installation) | [Usage](#usage) | [Options](#options) | [Website](https://cogearjs.org)
